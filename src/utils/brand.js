@@ -1,13 +1,15 @@
 /* ═══════════════════════════════════════
-   Brand Data Manager (Bulletproof Multi-path Loader)
+   Brand Data Manager (Bundled Default + Multi-path Fetch)
    ═══════════════════════════════════════ */
+import { DEFAULT_BRAND } from '../data/defaultBrand.js';
 
-let currentBrand = null;
-let brandList = [];
+let currentBrand = DEFAULT_BRAND;
+let brandList = [{ id: 'sample-brand', name: 'Amore Creatives', nameKo: '아모레 크리에이티브' }];
 
 export async function loadBrand(brandId = 'sample-brand') {
-  if (currentBrand && currentBrand.brandId === brandId) {
-    return currentBrand;
+  if (brandId === 'sample-brand' || brandId === DEFAULT_BRAND.brandId) {
+    currentBrand = DEFAULT_BRAND;
+    applyTheme(currentBrand.theme);
   }
 
   const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
@@ -27,21 +29,23 @@ export async function loadBrand(brandId = 'sample-brand') {
         return currentBrand;
       }
     } catch (e) {
-      // try next path candidate
+      // try next path
     }
   }
 
-  console.error(`Failed to load brand "${brandId}" from all paths`);
-  return null;
-}
-
-export function getBrand() {
+  // Fallback to default brand if fetch fails
+  if (!currentBrand) {
+    currentBrand = DEFAULT_BRAND;
+    applyTheme(currentBrand.theme);
+  }
   return currentBrand;
 }
 
+export function getBrand() {
+  return currentBrand || DEFAULT_BRAND;
+}
+
 export async function getBrandList() {
-  if (brandList.length) return brandList;
-  
   const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
   const candidatePaths = [
     `${base}/brands/brands-index.json`,
@@ -54,7 +58,8 @@ export async function getBrandList() {
     try {
       const res = await fetch(path);
       if (res.ok) {
-        brandList = await res.json();
+        const list = await res.json();
+        if (list && list.length) brandList = list;
         return brandList;
       }
     } catch (e) {
@@ -62,7 +67,6 @@ export async function getBrandList() {
     }
   }
 
-  brandList = [{ id: 'sample-brand', name: 'Amore Creatives', nameKo: '아모레 크리에이티브' }];
   return brandList;
 }
 
@@ -80,3 +84,6 @@ function applyTheme(theme) {
   if (theme.fontHeading) root.style.setProperty('--font-heading', theme.fontHeading);
   if (theme.fontBody) root.style.setProperty('--font-body', theme.fontBody);
 }
+
+// Initial theme apply
+applyTheme(DEFAULT_BRAND.theme);
