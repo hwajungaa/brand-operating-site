@@ -1,0 +1,18 @@
+{
+  "name": "brand-operating-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "브랜드 가이드라인을 이해하고, 만들고, 검증하고, 축적하는 내부 운영 플랫폼",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jspdf": "^2.5.2"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

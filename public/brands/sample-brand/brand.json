@@ -1,0 +1,186 @@
+{
+  "brandId": "sample-brand",
+  "brandName": "Amore Creatives",
+  "brandNameKo": "아모레 크리에이티브",
+  "tagline": "Creating Beauty Beyond Boundaries",
+
+  "theme": {
+    "primaryColor": "#000000",
+    "secondaryColor": "#000000",
+    "accentColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "surfaceColor": "#FFFFFF",
+    "textColor": "#000000",
+    "textSecondary": "#666666",
+    "borderColor": "#E8E8E8",
+    "fontHeading": "'Inter', sans-serif",
+    "fontBody": "'Noto Sans KR', sans-serif"
+  },
+
+  "strategy": {
+    "purpose": {
+      "title": "Brand Purpose",
+      "content": "시간이 지나도 변하지 않는 본질적인 아름다움을 추구합니다.",
+      "mission": "모든 사람이 자신만의 아름다움을 발견하고 표현할 수 있도록 돕는다.",
+      "vision": "글로벌 프리미엄 뷰티 브랜드 Top 10",
+      "values": ["Authenticity", "Innovation", "Sustainability", "Elegance"]
+    },
+    "personality": {
+      "title": "Brand Personality",
+      "keywords": ["Confident", "Sophisticated", "Warm", "Progressive"],
+      "spectrum": [
+        { "axis": "Formal ↔ Casual", "position": 25 },
+        { "axis": "Classic ↔ Modern", "position": 60 },
+        { "axis": "Bold ↔ Subtle", "position": 40 },
+        { "axis": "Luxurious ↔ Accessible", "position": 30 }
+      ]
+    },
+    "principles": {
+      "title": "Brand Principles",
+      "main": "Clear Confidence",
+      "description": "명확한 자신감. 과잉 장식 없이 본질로 말한다.",
+      "subPrinciples": [
+        "진정성을 기반으로 소통한다",
+        "품질로 신뢰를 쌓는다",
+        "겸손하지만 흔들리지 않는다"
+      ]
+    },
+    "designPrinciples": {
+      "title": "Design Principles",
+      "items": [
+        {
+          "name": "Clear Hierarchy",
+          "description": "정보의 위계를 명확하게. 한눈에 핵심을 파악할 수 있는 구조.",
+          "doExample": "제목 → 서브카피 → 본문의 명확한 크기 차이",
+          "dontExample": "모든 텍스트가 비슷한 크기와 굵기"
+        },
+        {
+          "name": "Strong Focus",
+          "description": "하나의 핵심 메시지에 시선을 집중시킨다.",
+          "doExample": "메인 비주얼 1개 + 최소한의 텍스트",
+          "dontExample": "여러 이미지와 메시지가 경쟁하는 레이아웃"
+        },
+        {
+          "name": "Reduced Decoration",
+          "description": "불필요한 장식을 줄이고, 콘텐츠가 돋보이게 한다.",
+          "doExample": "충분한 여백과 깔끔한 레이아웃",
+          "dontExample": "과도한 그림자, 테두리, 패턴 남용"
+        }
+      ]
+    }
+  },
+
+  "colors": {
+    "primary": [
+      { "name": "Navy", "hex": "#1B2838", "rgb": "27, 40, 56", "cmyk": "85, 60, 35, 60", "usage": "주요 텍스트, 로고, 핵심 요소" },
+      { "name": "Gold", "hex": "#B8924A", "rgb": "184, 146, 74", "cmyk": "15, 30, 70, 10", "usage": "강조, 포인트, CTA" },
+      { "name": "Cream", "hex": "#F9F6F2", "rgb": "249, 246, 242", "cmyk": "2, 2, 4, 0", "usage": "배경, 여백" }
+    ],
+    "secondary": [
+      { "name": "Deep Brown", "hex": "#8B7355", "rgb": "139, 115, 85", "cmyk": "30, 35, 50, 20", "usage": "보조 텍스트, 서브 요소" },
+      { "name": "Warm Gray", "hex": "#A09890", "rgb": "160, 152, 144", "cmyk": "20, 20, 22, 15", "usage": "비활성 상태, 보조 정보" },
+      { "name": "Light Sand", "hex": "#EDE7DF", "rgb": "237, 231, 223", "cmyk": "5, 5, 8, 2", "usage": "카드 배경, 구분선" }
+    ],
+    "functional": [
+      { "name": "Success", "hex": "#5B8C6F", "rgb": "91, 140, 111", "usage": "성공, 확인" },
+      { "name": "Warning", "hex": "#D4A853", "rgb": "212, 168, 83", "usage": "주의, 경고" },
+      { "name": "Error", "hex": "#C75050", "rgb": "199, 80, 80", "usage": "오류, 삭제" }
+    ],
+    "ratio": { "primary": 60, "secondary": 30, "accent": 10 }
+  },
+
+  "typography": {
+    "heading": {
+      "fontFamily": "Pretendard",
+      "purchaseUrl": "https://cactus.tistory.com/306",
+      "license": "SIL Open Font License",
+      "weights": ["Bold (700)", "ExtraBold (800)"],
+      "usage": "제목, 타이틀, 강조 텍스트"
+    },
+    "body": {
+      "fontFamily": "Pretendard",
+      "purchaseUrl": "https://cactus.tistory.com/306",
+      "license": "SIL Open Font License",
+      "weights": ["Regular (400)", "Medium (500)", "SemiBold (600)"],
+      "usage": "본문, 캡션, UI 텍스트"
+    },
+    "english": {
+      "fontFamily": "Inter",
+      "purchaseUrl": "https://rsms.me/inter/",
+      "license": "SIL Open Font License",
+      "weights": ["Regular (400)", "SemiBold (600)", "Bold (700)", "ExtraBold (800)"],
+      "usage": "영문 제목, 숫자, 코드"
+    },
+    "scale": [
+      { "name": "Display", "size": "48px", "weight": "800", "lineHeight": "1.15", "letterSpacing": "-1.5px" },
+      { "name": "Heading 1", "size": "36px", "weight": "800", "lineHeight": "1.25", "letterSpacing": "-0.5px" },
+      { "name": "Heading 2", "size": "28px", "weight": "700", "lineHeight": "1.3", "letterSpacing": "-0.3px" },
+      { "name": "Heading 3", "size": "22px", "weight": "700", "lineHeight": "1.35", "letterSpacing": "0" },
+      { "name": "Heading 4", "size": "18px", "weight": "600", "lineHeight": "1.4", "letterSpacing": "0" },
+      { "name": "Body Large", "size": "16px", "weight": "400", "lineHeight": "1.7", "letterSpacing": "0" },
+      { "name": "Body", "size": "14px", "weight": "400", "lineHeight": "1.7", "letterSpacing": "0" },
+      { "name": "Caption", "size": "12px", "weight": "400", "lineHeight": "1.5", "letterSpacing": "0.2px" },
+      { "name": "Overline", "size": "10px", "weight": "600", "lineHeight": "1.5", "letterSpacing": "2px" }
+    ]
+  },
+
+  "assets": {
+    "categories": [
+      { "id": "logo", "name": "Logo", "icon": "🏷️", "formats": ["SVG", "PNG", "AI", "EPS"], "count": 6 },
+      { "id": "symbol", "name": "Symbol", "icon": "◆", "formats": ["SVG", "PNG", "AI"], "count": 3 },
+      { "id": "wordmark", "name": "Wordmark", "icon": "🔤", "formats": ["SVG", "PNG", "AI"], "count": 3 },
+      { "id": "color-palette", "name": "Color Palette", "icon": "🎨", "formats": ["ASE", "CLR", "JSON"], "count": 1 },
+      { "id": "typeface", "name": "Typeface", "icon": "✏️", "formats": [], "count": 0, "externalLink": true },
+      { "id": "icon", "name": "Icon", "icon": "⬡", "formats": ["SVG", "PNG"], "count": 24 },
+      { "id": "pattern", "name": "Pattern", "icon": "▦", "formats": ["SVG", "PNG", "AI"], "count": 8 },
+      { "id": "illustration", "name": "Illustration", "icon": "🖼️", "formats": ["SVG", "PNG", "AI"], "count": 12 },
+      { "id": "graphic-motif", "name": "Graphic Motif", "icon": "✦", "formats": ["SVG", "PNG", "AI"], "count": 6 },
+      { "id": "key-visual", "name": "Key Visual", "icon": "📸", "formats": ["PNG", "PSD", "AI"], "count": 4 },
+      { "id": "product-rendering", "name": "Product Rendering", "icon": "📦", "formats": ["PNG", "PSD"], "count": 10 },
+      { "id": "photography", "name": "Photography", "icon": "📷", "formats": ["JPG", "PNG"], "count": 20 },
+      { "id": "motion-asset", "name": "Motion Asset", "icon": "🎬", "formats": ["MP4", "MOV", "GIF", "Lottie"], "count": 5 },
+      { "id": "presentation", "name": "Presentation Template", "icon": "📊", "formats": ["PPTX", "KEY"], "count": 3 },
+      { "id": "sns-template", "name": "SNS Template", "icon": "📱", "formats": ["PSD", "Figma"], "count": 6 }
+    ]
+  },
+
+  "voiceTone": {
+    "tone": {
+      "description": "자신감 있되 겸손하게, 전문적이되 따뜻하게",
+      "keywords": ["신뢰감 있는", "세련된", "따뜻한", "명확한"],
+      "examples": {
+        "do": [
+          "당신의 피부가 가진 본래의 힘을 깨웁니다.",
+          "오랜 연구가 만든 확실한 결과.",
+          "자연에서 찾은 답, 과학으로 완성한 솔루션."
+        ],
+        "dont": [
+          "미친 할인! 지금 바로 구매하세요!!!",
+          "이거 안 사면 후회할 걸요~",
+          "경쟁사 제품과 비교 불가한 퀄리티!"
+        ]
+      }
+    },
+    "glossary": [
+      { "term": "LUXE", "correct": "LUXE (대문자)", "incorrect": "Luxe, luxe, 럭스" },
+      { "term": "스킨케어", "correct": "스킨케어", "incorrect": "스킨 케어, 스킨-케어" },
+      { "term": "에센스", "correct": "에센스", "incorrect": "에쎈스, 에센스류" }
+    ]
+  },
+
+  "versions": [
+    { "version": "v3.0", "date": "2025.06", "summary": "브랜드 리뉴얼 — 로고, 컬러 시스템 전면 변경", "type": "major" },
+    { "version": "v2.2", "date": "2025.01", "summary": "보조 컬러 2종 추가, SNS 가이드 업데이트", "type": "minor" },
+    { "version": "v2.1", "date": "2024.09", "summary": "타이포그래피 가이드 보완, 모션 가이드 추가", "type": "minor" },
+    { "version": "v2.0", "date": "2024.03", "summary": "디지털 전용 컬러 팔레트 신설", "type": "major" },
+    { "version": "v1.0", "date": "2023.06", "summary": "초판 발행", "type": "major" }
+  ],
+
+  "checkerRules": {
+    "logoMinMarginPx": 20,
+    "logoMinSizePx": 80,
+    "allowedColors": ["#1B2838", "#B8924A", "#F9F6F2", "#8B7355", "#A09890", "#EDE7DF", "#FFFFFF", "#000000"],
+    "officialFonts": ["Pretendard", "Inter"],
+    "colorTolerance": 15
+  }
+}
