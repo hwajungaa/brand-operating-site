@@ -7,7 +7,8 @@ let brandList = [];
 
 export async function loadBrand(brandId) {
   try {
-    const res = await fetch(`/brands/${brandId}/brand.json`);
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+    const res = await fetch(`${baseUrl}brands/${brandId}/brand.json`);
     if (!res.ok) throw new Error(`Brand "${brandId}" not found`);
     currentBrand = await res.json();
     applyTheme(currentBrand.theme);
@@ -25,14 +26,15 @@ export function getBrand() {
 export async function getBrandList() {
   if (brandList.length) return brandList;
   try {
-    const res = await fetch('/brands/brands-index.json');
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+    const res = await fetch(`${baseUrl}brands/brands-index.json`);
     if (res.ok) {
       brandList = await res.json();
     } else {
-      brandList = [{ id: 'sample-brand', name: 'LUXE', nameKo: '럭스' }];
+      brandList = [{ id: 'sample-brand', name: 'Amore Creatives', nameKo: '아모레 크리에이티브' }];
     }
   } catch {
-    brandList = [{ id: 'sample-brand', name: 'LUXE', nameKo: '럭스' }];
+    brandList = [{ id: 'sample-brand', name: 'Amore Creatives', nameKo: '아모레 크리에이티브' }];
   }
   return brandList;
 }

@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 // 빌드를 다시 하지 않아도 데이터 교체만으로 사이트 내용이 바뀐다.
 export default defineConfig({
   root: '.',
-  base: './',
+  base: '/brand-operating-site/',
   publicDir: 'public',
   server: {
     port: 5173,
