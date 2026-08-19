@@ -1,12 +1,13 @@
 /* ═══════════════════════════════════════
    Asset Library Page
    ═══════════════════════════════════════ */
-import { getBrand } from '../utils/brand.js';
+import { getBrand, loadBrand } from '../utils/brand.js';
 import { showToast } from '../utils/helpers.js';
 
-export function renderAssetPage(container) {
-  const brand = getBrand();
-  if (!brand) { container.innerHTML = '<p>로딩 중...</p>'; return; }
+export async function renderAssetPage(container) {
+  let brand = getBrand();
+  if (!brand) brand = await loadBrand('sample-brand');
+  if (!brand) { container.innerHTML = '<div style="padding:40px; text-align:center; color:#999;">로딩 중...</div>'; return; }
 
   const categories = brand.assets?.categories || [];
   let totalAssets = categories.reduce((sum, c) => sum + c.count, 0);

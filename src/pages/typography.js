@@ -1,11 +1,12 @@
 /* ═══════════════════════════════════════
    Typography Page (Interactive)
    ═══════════════════════════════════════ */
-import { getBrand } from '../utils/brand.js';
+import { getBrand, loadBrand } from '../utils/brand.js';
 import { copyToClipboard } from '../utils/helpers.js';
 
-export function renderTypographyPage(container) {
-  const brand = getBrand();
+export async function renderTypographyPage(container) {
+  let brand = getBrand();
+  if (!brand) brand = await loadBrand('sample-brand');
   if (!brand) return;
 
   const { typography } = brand;

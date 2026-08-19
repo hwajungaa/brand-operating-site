@@ -1,10 +1,11 @@
 /* ═══════════════════════════════════════
    Version History Page
    ═══════════════════════════════════════ */
-import { getBrand } from '../utils/brand.js';
+import { getBrand, loadBrand } from '../utils/brand.js';
 
-export function renderVersionPage(container) {
-  const brand = getBrand();
+export async function renderVersionPage(container) {
+  let brand = getBrand();
+  if (!brand) brand = await loadBrand('sample-brand');
   if (!brand) return;
 
   const versions = brand.versions || [];

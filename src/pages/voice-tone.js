@@ -1,10 +1,11 @@
 /* ═══════════════════════════════════════
    Voice & Tone Page
    ═══════════════════════════════════════ */
-import { getBrand } from '../utils/brand.js';
+import { getBrand, loadBrand } from '../utils/brand.js';
 
-export function renderVoiceTonePage(container) {
-  const brand = getBrand();
+export async function renderVoiceTonePage(container) {
+  let brand = getBrand();
+  if (!brand) brand = await loadBrand('sample-brand');
   if (!brand) return;
 
   const vt = brand.voiceTone;
