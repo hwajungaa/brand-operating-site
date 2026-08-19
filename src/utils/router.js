@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   SPA Hash Router
+   SPA Hash Router (Robust & Fail-safe)
    ═══════════════════════════════════════ */
 
 const routes = {};
@@ -14,22 +14,24 @@ export function navigateTo(path) {
 }
 
 export function getCurrentPath() {
-  return window.location.hash.slice(1) || '/';
+  const hash = window.location.hash.slice(1);
+  return (hash.startsWith('/') ? hash : '/' + hash) || '/';
 }
 
 export function startRouter(onRouteChange) {
   async function handleRoute() {
     const path = getCurrentPath();
-    if (path === currentRoute) return;
     currentRoute = path;
 
     const handler = routes[path] || routes['/'];
-    if (handler) {
-      const content = document.getElementById('content');
-      if (content) {
-        content.style.opacity = '0';
-        await new Promise(r => setTimeout(r, 120));
+    const content = document.getElementById('content');
+    if (content && handler) {
+      try {
+        content.style.opacity = '1';
         await handler(content);
+      } catch (err) {
+        console.error('Error rendering route:', err);
+      } finally {
         content.style.opacity = '1';
       }
     }
