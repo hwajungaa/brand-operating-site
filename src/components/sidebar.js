@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   Sidebar Component
+   Sidebar Component (Responsive Mobile Drawer Enabled)
    ═══════════════════════════════════════ */
 import { getBrand } from '../utils/brand.js';
 import { getCurrentPath } from '../utils/router.js';
@@ -40,7 +40,10 @@ export function renderSidebar(container) {
 
   container.innerHTML = `
     <div class="sidebar-brand">
-      <div class="brand-name">${brand?.brandName || 'Brand'}</div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div class="brand-name">${brand?.brandName || 'Brand'}</div>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="메뉴 닫기">✕</button>
+      </div>
       <div class="brand-subtitle">Brand Operating Site</div>
     </div>
     <nav class="sidebar-nav">
@@ -50,6 +53,26 @@ export function renderSidebar(container) {
       ${latestVersion ? `<span class="version-tag">${latestVersion.version}</span> ${latestVersion.date}` : ''}
     </div>
   `;
+
+  setupSidebarClose(container);
+}
+
+function setupSidebarClose(container) {
+  const closeBtn = container.querySelector('#sidebar-close-btn');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function closeMenu() {
+    container.classList.remove('sidebar-open');
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
+  container.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 }
 
 export function updateSidebarActive() {

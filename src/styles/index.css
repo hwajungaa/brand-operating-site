@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    Brand Operating Site — Design System
-   Minimal Black & White (inspired by Amorepacific Creatives)
+   Minimal Black & White (Responsive Mobile Optimized)
    ═══════════════════════════════════════════════ */
 
 /* ─── Reset ─── */
@@ -47,6 +47,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   display: flex;
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 .sidebar {
@@ -59,7 +60,30 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   flex-shrink: 0;
   overflow-y: auto;
   position: relative;
-  z-index: 10;
+  z-index: 1000;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+.sidebar-close-btn {
+  display: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
 }
 
 .main {
@@ -95,7 +119,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 /* ─── Sidebar Styles ─── */
 .sidebar-brand {
-  padding: 28px 24px 24px;
+  padding: 24px 20px 20px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -116,7 +140,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 .sidebar-nav {
-  padding: 20px 12px;
+  padding: 16px 12px;
   flex: 1;
 }
 
@@ -127,7 +151,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.25);
-  padding: 16px 12px 6px;
+  padding: 14px 12px 6px;
 }
 
 .sidebar-link {
@@ -161,7 +185,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 .sidebar-version {
-  padding: 16px 24px;
+  padding: 16px 20px;
   border-top: 1px solid rgba(255,255,255,0.06);
   font-size: 10px;
   color: rgba(255,255,255,0.2);
@@ -253,7 +277,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 /* ─── Page Styles ─── */
 .page-title {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .page-title .page-label {
@@ -263,12 +287,12 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .page-title h1 {
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.5px;
@@ -278,12 +302,12 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 .page-title .page-desc {
   font-size: 13px;
   color: var(--text-secondary);
-  margin-top: 10px;
+  margin-top: 8px;
   line-height: 1.7;
   max-width: 560px;
 }
 
-/* ─── Cards ─── */
+/* ─── Cards & Grids ─── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -292,7 +316,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 .card:hover {
-  border-color: #ccc;
+  border-color: #999;
 }
 
 .card-grid {
@@ -322,11 +346,12 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all var(--transition);
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -465,7 +490,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 .strategy-level {
   width: 100%;
   max-width: 640px;
-  padding: 20px 28px;
+  padding: 18px 24px;
   text-align: center;
   transition: opacity var(--transition);
 }
@@ -486,7 +511,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .strategy-level .level-title {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.2px;
 }
@@ -500,7 +525,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .strategy-arrow {
   width: 1px;
-  height: 28px;
+  height: 24px;
   background: #ccc;
   position: relative;
 }
@@ -525,7 +550,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .asset-category-card {
   background: var(--bg);
-  padding: 24px 16px;
+  padding: 20px 14px;
   text-align: center;
   cursor: pointer;
   transition: background var(--transition);
@@ -537,7 +562,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .asset-category-card .cat-icon {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   opacity: 0.7;
 }
 
@@ -713,7 +738,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -748,7 +773,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   width: 100%;
   height: 1px;
   background: var(--border);
-  margin: 40px 0;
+  margin: 36px 0;
 }
 
 .section-subtitle {
@@ -910,7 +935,10 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   font-family: var(--font-heading);
 }
 
-/* ─── Responsive ─── */
+/* ═══════════════════════════════════════════════
+   Comprehensive Mobile Responsive Overhauls
+   ═══════════════════════════════════════════════ */
+
 @media (max-width: 1024px) {
   .card-grid.cols-3, .card-grid.cols-4, .card-grid.cols-5 {
     grid-template-columns: repeat(2, 1fr);
@@ -918,9 +946,244 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 @media (max-width: 768px) {
-  .sidebar { display: none; }
-  .card-grid.cols-2, .card-grid.cols-3 {
-    grid-template-columns: 1fr;
+  /* Layout & Sidebar Mobile Drawer */
+  #app {
+    flex-direction: column;
   }
-  .content { padding: 24px; }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+
+  .sidebar-close-btn {
+    display: block !important;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+    display: flex !important;
+    box-shadow: none;
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+    box-shadow: 8px 0 30px rgba(0,0,0,0.3);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Header Mobile */
+  .header {
+    padding: 0 16px;
+    height: 52px;
+    gap: 8px;
+  }
+
+  .header-left {
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .header-title {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-breadcrumb {
+    display: none;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .search-box {
+    width: 130px;
+    padding: 5px 8px;
+  }
+
+  .search-box input {
+    font-size: 10px;
+  }
+
+  .brand-switcher {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  /* Content Container Mobile */
+  .content {
+    padding: 24px 16px 60px;
+    overflow-x: hidden;
+  }
+
+  .page-title {
+    margin-bottom: 28px;
+  }
+
+  .page-title h1 {
+    font-size: 22px;
+  }
+
+  .page-title .page-desc {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  /* All Card Grids Stack vertically on Mobile */
+  .card-grid,
+  .card-grid.cols-2,
+  .card-grid.cols-3,
+  .card-grid.cols-4,
+  .card-grid.cols-5 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .card-grid > * {
+    border: 1px solid var(--border) !important;
+  }
+
+  .do-dont-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .do-card, .dont-card {
+    border: 1px solid var(--border) !important;
+  }
+
+  /* Asset Grid Mobile: 2 Columns */
+  .asset-category-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .asset-category-card {
+    border: 1px solid var(--border) !important;
+    padding: 16px 10px;
+  }
+
+  .asset-category-card .cat-icon {
+    font-size: 18px;
+  }
+
+  .asset-category-card .cat-name {
+    font-size: 10px;
+  }
+
+  /* Strategy Flow Mobile */
+  .strategy-level {
+    max-width: 100%;
+    padding: 14px 16px;
+  }
+
+  .strategy-level .level-title {
+    font-size: 13px;
+  }
+
+  /* Personality Spectrum Mobile */
+  .spectrum-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .spectrum-label {
+    min-width: unset;
+    font-size: 11px;
+  }
+
+  .spectrum-bar {
+    width: 100%;
+  }
+
+  /* Color Accessibility & Gradient Generator Mobile */
+  .a11y-checker {
+    padding: 16px;
+  }
+
+  .a11y-selectors {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #gradient-section div[style*="flex"] {
+    flex-wrap: wrap;
+  }
+
+  /* Version Timeline Mobile */
+  .version-timeline {
+    padding-left: 20px;
+  }
+
+  .version-timeline::before {
+    left: 5px;
+  }
+
+  .version-item::before {
+    left: -19px;
+  }
+
+  .version-item.minor::before {
+    left: -18px;
+  }
+
+  .principle-card .principle-header {
+    padding: 16px;
+  }
+
+  .principle-card .principle-examples {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right {
+    gap: 6px;
+  }
+
+  .search-box {
+    width: 100px;
+  }
+
+  .brand-switcher {
+    padding: 4px 6px;
+    font-size: 9px;
+  }
+
+  .page-title h1 {
+    font-size: 20px;
+  }
 }

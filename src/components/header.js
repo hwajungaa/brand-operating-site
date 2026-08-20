@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   Header Component
+   Header Component (Mobile Responsive)
    ═══════════════════════════════════════ */
 import { getBrand, getBrandList, loadBrand } from '../utils/brand.js';
 import { renderSidebar } from './sidebar.js';
@@ -21,6 +21,9 @@ export function renderHeader(container) {
 
   container.innerHTML = `
     <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="메뉴 열기">
+        <span>☰</span>
+      </button>
       <span class="header-title">${pageTitle}</span>
       <span class="header-breadcrumb">${brand?.brandName || ''} › ${pageTitle}</span>
     </div>
@@ -37,8 +40,30 @@ export function renderHeader(container) {
     </div>
   `;
 
+  setupMobileMenu();
   setupSearch();
   setupBrandSwitcher();
+}
+
+function setupMobileMenu() {
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  if (!toggleBtn || !sidebar) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar.classList.toggle('sidebar-open');
+    if (overlay) overlay.classList.toggle('active');
+  });
+
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('sidebar-open');
+      overlay.classList.remove('active');
+    });
+  }
 }
 
 function setupSearch() {
@@ -61,7 +86,6 @@ function searchBrandData(brand, query) {
   if (!brand) return [];
   const results = [];
 
-  // Search colors
   ['primary', 'secondary', 'functional'].forEach(group => {
     brand.colors?.[group]?.forEach(color => {
       if (color.name.toLowerCase().includes(query) ||
@@ -72,14 +96,12 @@ function searchBrandData(brand, query) {
     });
   });
 
-  // Search assets
   brand.assets?.categories?.forEach(cat => {
     if (cat.name.toLowerCase().includes(query) || cat.id.toLowerCase().includes(query)) {
       results.push({ type: 'asset', label: cat.name, link: '#/assets', detail: cat.formats.join(', ') });
     }
   });
 
-  // Search typography
   ['heading', 'body', 'english'].forEach(key => {
     const t = brand.typography?.[key];
     if (t && t.fontFamily.toLowerCase().includes(query)) {
@@ -87,7 +109,6 @@ function searchBrandData(brand, query) {
     }
   });
 
-  // Search strategy
   const strat = brand.strategy;
   if (strat) {
     if (strat.principles?.main?.toLowerCase().includes(query)) {
@@ -145,12 +166,12 @@ function showSearchResults(results, query) {
   }, 10);
 }
 
-async function setupBrandSwitcher() {
+function setupBrandSwitcher() {
   const btn = document.getElementById('brand-switcher-btn');
   if (!btn) return;
 
   btn.addEventListener('click', async () => {
-    const brands = await getBrandList();
+    const brands = getBrandList();
     const existing = document.getElementById('brand-dropdown');
     if (existing) { existing.remove(); return; }
 
@@ -173,8 +194,8 @@ async function setupBrandSwitcher() {
     btn.appendChild(dropdown);
 
     dropdown.querySelectorAll('.brand-option').forEach(opt => {
-      opt.addEventListener('click', async () => {
-        await loadBrand(opt.dataset.brandId);
+      opt.addEventListener('click', () => {
+        loadBrand(opt.dataset.brandId);
         renderSidebar(document.getElementById('sidebar'));
         renderHeader(document.getElementById('header'));
         window.dispatchEvent(new HashChangeEvent('hashchange'));

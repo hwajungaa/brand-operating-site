@@ -59,8 +59,8 @@ export function renderAssetPage(container) {
     <!-- Interactive Logo Resize -->
     <div class="section-subtitle">🔍 로고/심볼 인터랙티브 프리뷰</div>
     <div class="card" style="margin-bottom:24px;">
-      <div style="display:flex; gap:24px; align-items:flex-start;">
-        <div style="flex:1;">
+      <div style="display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:260px;">
           <div style="font-size:12px; font-weight:600; margin-bottom:8px;">로고 크기 조절</div>
           <input type="range" class="range-slider" id="logo-size-slider" min="40" max="300" value="120" />
           <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:4px;">
@@ -70,14 +70,14 @@ export function renderAssetPage(container) {
           </div>
           <div style="margin-top:16px;">
             <div style="font-size:12px; font-weight:600; margin-bottom:8px;">배경 미리보기</div>
-            <div style="display:flex; gap:8px;">
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
               <button class="btn btn-sm btn-outline bg-preview-btn" data-bg="#FFFFFF">밝은 배경</button>
               <button class="btn btn-sm btn-outline bg-preview-btn" data-bg="#1B2838">어두운 배경</button>
               <button class="btn btn-sm btn-outline bg-preview-btn" data-bg="#F9F6F2">크림 배경</button>
             </div>
           </div>
         </div>
-        <div id="logo-preview-area" style="flex:1; display:flex; align-items:center; justify-content:center; min-height:200px; background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); position:relative;">
+        <div id="logo-preview-area" style="flex:1; min-width:260px; display:flex; align-items:center; justify-content:center; min-height:160px; background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); position:relative; overflow:hidden;">
           <div id="logo-preview" style="font-family:var(--font-heading); font-size:48px; font-weight:900; color:var(--primary); letter-spacing:-1px; transition: font-size 0.2s;">${brand.brandName || 'LOGO'}</div>
           <div id="logo-margin-indicator" style="position:absolute; border:1px dashed var(--secondary); opacity:0.4; pointer-events:none; transition: all 0.2s;"></div>
         </div>
