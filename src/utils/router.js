@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   SPA Hash Router (Robust & Fail-safe)
+   SPA Hash Router (100% Synchronous Instant Render)
    ═══════════════════════════════════════ */
 
 const routes = {};
@@ -19,7 +19,7 @@ export function getCurrentPath() {
 }
 
 export function startRouter(onRouteChange) {
-  async function handleRoute() {
+  function handleRoute() {
     const path = getCurrentPath();
     currentRoute = path;
 
@@ -28,7 +28,7 @@ export function startRouter(onRouteChange) {
     if (content && handler) {
       try {
         content.style.opacity = '1';
-        await handler(content);
+        handler(content);
       } catch (err) {
         console.error('Error rendering route:', err);
       } finally {

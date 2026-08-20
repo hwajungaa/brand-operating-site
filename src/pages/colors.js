@@ -1,12 +1,11 @@
 /* ═══════════════════════════════════════
    Color System Page (Interactive)
    ═══════════════════════════════════════ */
-import { getBrand, loadBrand } from '../utils/brand.js';
+import { getBrand } from '../utils/brand.js';
 import { copyToClipboard, getContrastRatio, getWcagLevel } from '../utils/helpers.js';
 
-export async function renderColorPage(container) {
-  let brand = getBrand();
-  if (!brand) brand = await loadBrand('sample-brand');
+export function renderColorPage(container) {
+  const brand = getBrand();
   if (!brand) return;
 
   const { colors } = brand;

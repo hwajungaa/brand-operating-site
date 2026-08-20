@@ -1,17 +1,11 @@
 /* ═══════════════════════════════════════
    Brand Strategy Page
    ═══════════════════════════════════════ */
-import { getBrand, loadBrand } from '../utils/brand.js';
+import { getBrand } from '../utils/brand.js';
 
-export async function renderStrategyPage(container) {
-  let brand = getBrand();
-  if (!brand) {
-    brand = await loadBrand('sample-brand');
-  }
-  if (!brand) {
-    container.innerHTML = '<div style="padding:40px; text-align:center; color:#999;">브랜드 데이터를 불러오는 중입니다... 잠시 후 새로고침 해주세요.</div>';
-    return;
-  }
+export function renderStrategyPage(container) {
+  const brand = getBrand();
+  if (!brand) return;
 
   const s = brand.strategy;
 
